@@ -1,6 +1,4 @@
 <script setup>
-import flutter from "~/assets/icon/flutter.png";
-
 useHead({
   script: [
     {

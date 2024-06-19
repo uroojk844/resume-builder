@@ -10,7 +10,7 @@ const details = useDetails();
   <TextField placeholder="Address" v-model="details.address" />
   <TextField
     placeholder="Summary"
-    class="col-span-2"
+    class="sm:col-span-2"
     v-model="details.summary"
   />
 </template>
