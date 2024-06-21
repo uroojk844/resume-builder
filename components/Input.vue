@@ -6,6 +6,9 @@ const props = defineProps({
   modelValue: {
     type: String,
   },
+  labels: {
+    default: true,
+  },
   placeholder: {
     type: String,
   },
@@ -20,8 +23,8 @@ onMounted(() => {
 });
 </script>
 <template>
-  <section class="grid gap-1">
-    <label :for="'input' + id">{{ $props.placeholder }}</label>
+  <section class="grid gap-1 my-4">
+    <label v-if="labels" :for="'input' + id">{{ $props.placeholder }}</label>
     <input
       :type="props.type"
       :placeholder="props.placeholder"

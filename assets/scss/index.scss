@@ -13,3 +13,17 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
+
+details{
+    transition: .5s linear;
+    max-height: 28px;
+    
+    summary {
+        cursor: pointer;
+    }
+        
+    &[open] {
+        overflow: hidden;
+        max-height: 10000px;
+    }
+}

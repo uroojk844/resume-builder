@@ -19,7 +19,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <section class="grid gap-1">
+  <section class="grid gap-1 my-4">
     <label :for="'textfield' + id">{{ $props.placeholder }}</label>
     <textarea
       :rows="props.rows"

@@ -4,7 +4,7 @@ const details = useDetails();
 </script>
 
 <template>
-  <section class="col-span-full grid4 gap-4">
+  <section class="gap-4 border-b">
     <Input
       placeholder="Start date"
       type="date"
@@ -23,8 +23,8 @@ const details = useDetails();
     />
     <TextField
       placeholder="Description"
-      class="sm:col-span-2"
       v-model="details.experience[index]['description']"
     />
+    <Button @click="delete details.experience[index]" class="bg-red-400">Delete</Button>
   </section>
 </template>

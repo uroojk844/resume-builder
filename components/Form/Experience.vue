@@ -14,7 +14,14 @@ function addProject() {
 </script>
 
 <template>
-  <h1 class="text-xl font-semibold col-span-full">Experience</h1>
-  <Project :key="index" v-for="(_, index) in details.experience" :index="index" />
-  <Button @click="addProject">Add more</Button>
+  <details>
+    <summary class="text-xl font-semibold col-span-full">Experience</summary>
+    <Project
+      :key="index"
+      v-for="(_, index) in details.experience"
+      :index="index"
+    />
+    <hr><br>
+    <Button @click="addProject">Add more</Button>
+  </details>
 </template>

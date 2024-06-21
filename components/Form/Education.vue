@@ -14,7 +14,14 @@ function addCourse() {
 </script>
 
 <template>
-  <h1 class="text-xl font-semibold col-span-full">Education</h1>
-  <Course :key="index" v-for="(_, index) in details.education" :index="index" />
-  <Button @click="addCourse">Add more</Button>
+  <details>
+    <summary class="text-xl font-semibold col-span-full">Education</summary>
+    <Course
+      :key="index"
+      v-for="(_, index) in details.education"
+      :index="index"
+    />
+    <hr><br>
+    <Button @click="addCourse">Add more</Button>
+  </details>
 </template>

@@ -10,7 +10,7 @@ useHead({
 const details = useDetails();
 </script>
 <template>
-  <main>
+  <main class="template">
     <div class="left">
       <div class="top">
         <div class="name">{{ details.name }}</div>
@@ -55,15 +55,16 @@ const details = useDetails();
             v-for="(course, index) in details.education"
             :key="index"
           >
-            <div class="title">
-              {{ new Date(course.start_date).getFullYear() }} -
-              {{ new Date(course.end_date).getFullYear() || "Present" }}
+            <div class="subtitle">
+              {{ getDate(course.start_date) }}
+              -
+              {{ getDate(course.end_date) }}
             </div>
             <div class="title">{{ course.course }}</div>
             <div class="subtitle">{{ course.university }}</div>
           </div>
         </div>
-        <div class="all">
+        <div class="all" v-if="details.languages.length">
           <div class="heading">
             <i class="fas fa-fw fa-earth-asia"></i> language
           </div>
@@ -94,9 +95,12 @@ const details = useDetails();
             :key="index"
           >
             <div class="title">{{ project.title }}</div>
-            <div class="font-medium tracking-wide text-sm">
-              {{ new Date(project.start_date).getFullYear() }} -
-              {{ new Date(project.end_date).getFullYear() || "Present" }}
+            <div
+              v-if="project.start_date"
+              class="font-medium tracking-wide text-sm"
+            >
+              {{ getDate(project.start_date) }} -
+              {{ getDate(project.end_date) }}
             </div>
             <div
               class="subtitle whitespace-pre-wrap"
@@ -134,6 +138,8 @@ const details = useDetails();
 
 $blue: rgb(108, 182, 255);
 $black: #333;
+$big-text: clamp(10px, 10px + 1vw, 2vw);
+$small-text: min(2vw, 15px);
 
 ::-webkit-scrollbar {
   display: none;
@@ -141,6 +147,7 @@ $black: #333;
 
 .desc {
   color: #555;
+  font-size: $small-text;
 }
 
 * {
@@ -150,7 +157,7 @@ $black: #333;
 main {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 380px auto;
+  grid-template-columns: 1.5fr 2fr;
 }
 a {
   text-decoration: none;
@@ -167,55 +174,57 @@ a {
 }
 .top {
   background-color: $blue;
-  padding: 48px 0;
+  padding: 6vw 0;
   display: grid;
-  gap: 10px;
+  gap: 1vw;
   place-items: center;
   text-transform: uppercase;
 }
 .top .name {
-  font-size: 28px;
+  font-size: $big-text;
   font-weight: bold;
   letter-spacing: 2px;
 }
 .top .role {
-  font-size: 14px;
+  font-size: $small-text;
   letter-spacing: 2px;
   font-weight: bold;
 }
 .left .bottom {
   background-color: #333;
-  padding: 52px;
+  padding: 6vw;
   display: grid;
-  gap: 50px;
+  gap: min(2vw, 24px);
+  align-content: start;
 }
 
 .heading {
   text-transform: uppercase;
   color: #fff;
   font-weight: bold;
-  font-size: 28px;
+  font-size: $big-text;
   letter-spacing: 2px;
-  padding-bottom: 6px;
+  padding-bottom: 1vw;
   border-bottom: 3px solid #fff;
-  margin-bottom: 8px;
+  margin-bottom: 1vw;
 }
 .heading .fa-fw {
   color: $blue;
-  margin-right: 12px;
 }
 .all {
   display: grid;
-  gap: 30px;
+  gap: min(2vw, 24px);
+  align-content: start;
 }
 .group {
   display: grid;
-  row-gap: 4px;
+  row-gap: 0.5vw;
   color: #fff;
   text-transform: capitalize;
+  align-content: start;
 }
 .group .icon {
-  font-size: 24px;
+  font-size: 3vw;
   grid-row: 1/3;
   padding-top: 5px;
   color: inherit;
@@ -223,6 +232,7 @@ a {
 .group .title {
   font-weight: bold;
   letter-spacing: 1px;
+  font-size: $small-text;
 }
 
 .right .group {
@@ -231,14 +241,14 @@ a {
 
 .group .subtitle {
   color: #888;
-  font-size: 14px;
+  font-size: $small-text;
 }
 
 .right {
   background-color: whitesmoke;
-  padding: 48px;
+  padding: 6vw;
   display: grid;
-  gap: 48px;
+  gap: 6vw;
   align-content: baseline;
 }
 
@@ -248,6 +258,7 @@ ul {
   list-style-position: inside;
   width: 100%;
   text-transform: capitalize;
+  font-size: $small-text;
 }
 
 ul.skills {
@@ -265,7 +276,7 @@ ul.skills {
 }
 
 .subtitle ul {
-  padding-left: 16px;
+  padding-left: 2vw;
   margin-top: 4px;
 }
 
@@ -275,7 +286,7 @@ ul.skills {
 }
 
 .right .group {
-  margin-bottom: 16px;
+  margin-bottom: 2vw;
   text-transform: none;
 }
 </style>

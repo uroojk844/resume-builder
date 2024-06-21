@@ -19,4 +19,5 @@ const details = useDetails();
     placeholder="University"
     v-model="details.education[index]['university']"
   />
+  <Button @click="delete details.education[index]" class="bg-red-400">Delete</Button>
 </template>
