@@ -136,7 +136,6 @@ const details = useDetails();
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
-$blue: rgb(108, 182, 255);
 $black: #333;
 $big-text: clamp(10px, 10px + 1vw, 2vw);
 $small-text: min(2vw, 15px);
@@ -151,7 +150,7 @@ $small-text: min(2vw, 15px);
 }
 
 * {
-  font-family: "concert one", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 main {
@@ -173,8 +172,7 @@ a {
   border-radius: 50%;
 }
 .top {
-  background-color: $blue;
-  padding: 6vw 0;
+  padding-top: 4.5vw;
   display: grid;
   gap: 1vw;
   place-items: center;
@@ -191,7 +189,6 @@ a {
   font-weight: bold;
 }
 .left .bottom {
-  background-color: #333;
   padding: 6vw;
   display: grid;
   gap: min(2vw, 24px);
@@ -200,17 +197,14 @@ a {
 
 .heading {
   text-transform: uppercase;
-  color: #fff;
   font-weight: bold;
   font-size: $big-text;
   letter-spacing: 2px;
   padding-bottom: 1vw;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid;
   margin-bottom: 1vw;
 }
-.heading .fa-fw {
-  color: $blue;
-}
+
 .all {
   display: grid;
   gap: min(2vw, 24px);
@@ -219,7 +213,6 @@ a {
 .group {
   display: grid;
   row-gap: 0.5vw;
-  color: #fff;
   text-transform: capitalize;
   align-content: start;
 }

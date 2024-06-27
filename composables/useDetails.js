@@ -1,4 +1,4 @@
-const details = {
+const details = reactive({
   links: {},
   skills: [],
   languages: [],
@@ -19,7 +19,12 @@ const details = {
       link: "",
     },
   },
-};
+  ...JSON.parse(localStorage.getItem("details")),
+});
+
+watch(details, (newDetails) => {
+  localStorage.setItem("details", JSON.stringify(newDetails));
+});
 
 export const useDetails = () => useState("details", () => details);
 
