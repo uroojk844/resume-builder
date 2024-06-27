@@ -16,6 +16,5 @@
       Resume Builder
     </div>
     <NuxtLink to="/">Home</NuxtLink>
-    <NuxtLink to="/resume">My Resume</NuxtLink>
   </nav>
 </template>

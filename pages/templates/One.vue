@@ -14,7 +14,7 @@ const details = useDetails();
     <div class="left">
       <div class="top">
         <div class="name">{{ details.name }}</div>
-        <div v-if="details.role.length" class="role">{{ details.role }}</div>
+        <div v-if="details?.role" class="role">{{ details.role }}</div>
       </div>
       <div class="bottom">
         <div class="all">

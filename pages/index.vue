@@ -3,7 +3,7 @@
     <NuxtLink
       v-for="(template, index) in ['one', 'two']"
       :key="index"
-      :to="'templates/' + template"
+      :to="'/templates/' + template"
       class="border rounded grid place-items-center text-4xl aspect-square hover:bg-blue-100 transition-colors"
     >
       {{ index + 1 }}
